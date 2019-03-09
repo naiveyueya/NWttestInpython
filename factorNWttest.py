@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 #@author: naiveyueya
-__version__ = 0.0.1
+__version__ = '0.0.1'
 import numpy as np
 from collections import namedtuple
 from scipy.stats import distributions
