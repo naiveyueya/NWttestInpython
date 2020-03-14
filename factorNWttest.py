@@ -14,9 +14,14 @@ def _ttest_finish(df, t):#from scipy.stats
     return t, prob
 
 NWt_1sampleResult = namedtuple('NWT_1sampResult', ('statistic', 'pvalue'))
-def nwttest_1samp(a, popmean, axis=0,L=1):
+def nwttest_1samp(a, popmean, axis=0,L='auto'):
     a = np.array(a)
     N = len(a)
+    if L=='auto':
+        L = 4 * (N/100) ** (2 / 9)
+    elif type(L) != int:
+        print('Error Input Lag')
+        return
     df = N-1
     e = a - np.mean(a)
     residuals = np.sum(e**2)
